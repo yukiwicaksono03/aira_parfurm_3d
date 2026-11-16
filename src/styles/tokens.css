@@ -1,0 +1,121 @@
+/* ──────────────────────────────────────────────────────────────────────
+   Design tokens — AiraParfum
+   Palette: biru laut (ocean), hijau matcha, coklat muda (sand / light brown)
+   ────────────────────────────────────────────────────────────────────── */
+
+/* Registered so variant changes cross-fade instead of snapping. */
+@property --accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #8fcbe4;
+}
+@property --liquid {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #5aa6cc;
+}
+@property --liquid-deep {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #0e4466;
+}
+@property --glow {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #2e7da6;
+}
+@property --scene-top {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #0c2a3b;
+}
+@property --scene-bottom {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #03101a;
+}
+
+:root {
+  /* Ocean */
+  --ocean-950: #03101a;
+  --ocean-900: #061520;
+  --ocean-850: #0a1e2b;
+  --ocean-800: #0c2a3b;
+  --ocean-600: #1d506b;
+  --ocean-400: #5aa6cc;
+  --ocean-200: #bfe0ef;
+  /* Matcha */
+  --matcha-600: #5f7a40;
+  --matcha-400: #a9c67a;
+  --matcha-200: #d9e7c3;
+  /* Sand / light brown */
+  --sand-50: #faf5ec;
+  --sand-100: #f4ebdd;
+  --sand-200: #e8d8c0;
+  --sand-300: #dcc6a8;
+  --sand-400: #d2b48c;
+  --brown-500: #b08a62;
+  --brown-700: #6e5139;
+
+  /* Semantic */
+  --bg: var(--ocean-950);
+  --ink: var(--sand-100);
+  --ink-muted: #d3c7b5; /* 11.6:1 on --ocean-900 */
+  --ink-soft: #b3a691; /* 7.6:1 on --ocean-900 */
+  --line: rgb(244 235 221 / 0.14);
+  --line-strong: rgb(244 235 221 / 0.28);
+  --panel: rgb(5 18 28 / 0.68);
+  --panel-strong: rgb(5 18 28 / 0.9);
+  --metal: linear-gradient(135deg, #e9d3b4 0%, #b8916a 45%, #f1dfc4 70%, #9c7752 100%);
+
+  /* Variant-driven (set from JS, see useThemeVariables) */
+  --accent: #8fcbe4;
+  --liquid: #5aa6cc;
+  --liquid-deep: #0e4466;
+  --glow: #2e7da6;
+  --scene-top: #0c2a3b;
+  --scene-bottom: #03101a;
+  transition:
+    --accent 1.2s ease,
+    --liquid 1.2s ease,
+    --liquid-deep 1.2s ease,
+    --glow 1.2s ease,
+    --scene-top 1.2s ease,
+    --scene-bottom 1.2s ease;
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', 'Times New Roman', Georgia, serif;
+  --font-body: 'Manrope Variable', 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.5rem, 1.1rem + 1.2vw, 2rem);
+  --text-2xl: clamp(2.25rem, 1.4rem + 3.2vw, 4.25rem);
+  --text-hero: clamp(3.5rem, 1.6rem + 7.2vw, 8.5rem);
+  --tracking-wide: 0.18em;
+
+  /* Space & shape */
+  --gutter: clamp(1rem, 0.4rem + 2.6vw, 3rem);
+  --section-pad: clamp(5rem, 3rem + 8vw, 10rem);
+  --radius-sm: 10px;
+  --radius: 18px;
+  --radius-lg: 28px;
+  --header-h: 72px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur: 420ms;
+  --dur-slow: 1100ms;
+
+  color-scheme: dark;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --header-h: 64px;
+    --panel: rgb(5 18 28 / 0.86);
+  }
+}
